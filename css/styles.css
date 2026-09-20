@@ -294,7 +294,7 @@ h3 {
 
 /* sections */
 .section {
-  padding: 1rem 0rem 2rem 0rem; 
+  padding: 4rem 0rem 2rem 0rem; 
 }
 
 .section-home {
@@ -447,6 +447,18 @@ textarea {
 .check input {
   width: auto;
   margin-top: .35rem;
+}
+
+.check-list {
+  margin: 1.5rem 0 2rem 1.25rem;
+  padding: 0;
+  list-style: disc;
+  display: grid;
+  gap: .7rem;
+  max-width: 42rem;
+  font: 600 1rem var(--body);
+  color: var(--navy);
+  text-align: left;
 }
 
 /* footer */
