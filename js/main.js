@@ -16,6 +16,16 @@ if (headerHost) {
       const injectedToggle = headerHost.querySelector('.nav-toggle');
       const injectedNav = headerHost.querySelector('.nav');
 
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      headerHost.querySelectorAll('.nav a[href]').forEach((link) => {
+        if (link.classList.contains('btn')) return;
+
+        const href = link.getAttribute('href');
+        if (href && href.replace(/\.html$/, '') === currentPage.replace(/\.html$/, '')) {
+          link.setAttribute('aria-current', 'page');
+        }
+      });
+
       injectedToggle?.addEventListener('click', () => {
         const open = injectedNav.classList.toggle('open');
         injectedToggle.setAttribute('aria-expanded', open);

@@ -147,7 +147,7 @@ h3 {
   max-width: none;
   margin: 0;
   padding-left: 2rem;
-  padding-right: 5rem;
+  padding-right: 2rem;
 }
 
 .brand {
@@ -187,9 +187,11 @@ h3 {
   border-bottom: 2px solid transparent;
 }
 
-.nav a:hover,
-.nav a[aria-current=page] {
-  border-color: var(--gold);
+.nav a:hover:not(.btn) {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+.nav a[aria-current=page]:not(.btn) {
   color: var(--gold);
 }
 
@@ -210,7 +212,20 @@ h3 {
   border-radius: 4px;
 }
 
-/* hero — drop a photo at assets/img/hero.jpg and it appears automatically */
+.logo-band {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: center;
+}
+
+.logo-band img {
+  width: 100%;
+  max-height: 90px;
+  object-fit: contain;
+  filter: grayscale(0);
+}
+
 .hero {
   color: #dbe4ec;
   padding: 6rem 0 5rem;
@@ -243,7 +258,7 @@ h3 {
 
 /* sections */
 .section {
-  padding: 4.5rem 0;
+  padding: 1rem 0rem 2rem 0rem;
 }
 
 .section--gray {
@@ -270,6 +285,12 @@ h3 {
   gap: 1.25rem;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   margin-top: 2rem;
+}
+
+.grid-operations{
+    display:grid;
+    gap: 1.25rem;
+    margin-top: 2rem;
 }
 
 .card {
@@ -348,7 +369,6 @@ h3 {
   background: #fff8e6;
   border-left: 4px solid var(--gold);
   padding: .6rem 1rem;
-  font-size: .85rem;
   margin-top: 1.5rem;
   color: var(--graphite);
 }
@@ -399,13 +419,19 @@ textarea {
 
 .site-footer .wrap {
   display: grid;
-  gap: 2rem;
-  grid-template-columns: 2fr 1fr 1fr;
+  gap: 0rem;
+  grid-template-columns: 1.5fr 2fr;
   width: 100%;
   max-width: none;
   margin: 0;
   padding-left: 2rem;
-  padding-right: .1rem;
+  padding-right: 2rem;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: .4fr 1fr;
+  gap: .0rem;
 }
 
 .site-footer a {
@@ -413,8 +439,8 @@ textarea {
   text-decoration: none;
 }
 
-.site-footer a:hover,
-.site-footer a:focus-visible {
+.footer-links a:hover,
+.footer-links a:focus-visible {
   text-decoration: underline;
 }
 
