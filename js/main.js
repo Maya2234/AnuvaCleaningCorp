@@ -4,6 +4,7 @@ const nav = document.querySelector('.nav');
 
 toggle?.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
+  toggle.classList.toggle('is-open', open);
   toggle.setAttribute('aria-expanded', open);
 });
 
@@ -28,6 +29,7 @@ if (headerHost) {
 
       injectedToggle?.addEventListener('click', () => {
         const open = injectedNav.classList.toggle('open');
+        injectedToggle.classList.toggle('is-open', open);
         injectedToggle.setAttribute('aria-expanded', open);
       });
     })
