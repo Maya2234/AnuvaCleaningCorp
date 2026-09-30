@@ -653,6 +653,7 @@ textarea {
 
 .card-link:hover h3 {
   text-decoration: underline;
+  transform: translateY(-2px);
 }
 
 .card-link::after {
@@ -664,11 +665,6 @@ textarea {
 .card:hover {
   box-shadow: 0 6px 18px rgba(11, 31, 51, 0.12);
   border-color: var(--navy);
-  transform: translateY(-2px);
-}
-
-.card:hover h3 {
-  color: var(--blue);
 }
 
 .footer-brand {
