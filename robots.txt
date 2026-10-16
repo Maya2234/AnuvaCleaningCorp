@@ -1,0 +1,8 @@
+# robots.txt for anuvacleaning.com
+# Everything here is meant to be found; the one exception is the contact form's confirmation page.
+
+User-agent: *
+Allow: /
+Disallow: /thank-you/
+
+Sitemap: https://anuvacleaning.com/sitemap.xml

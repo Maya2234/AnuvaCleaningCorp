@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap for anuvacleaning.com (Anuva Cleaning Corporation).
+  One <url> per page that should appear in search results. URLs end in a slash because every page is
+  a folder with an index.html.
+
+  Left out on purpose:
+    404.html      - an error page, never a search result
+    /thank-you/   - the contact form's confirmation page, reached only by a post-submit redirect
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://anuvacleaning.com/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://anuvacleaning.com/services/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://anuvacleaning.com/projects/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://anuvacleaning.com/industries/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://anuvacleaning.com/government-contracting/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://anuvacleaning.com/construction/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://anuvacleaning.com/healthcare/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://anuvacleaning.com/events/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://anuvacleaning.com/education/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://anuvacleaning.com/about/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://anuvacleaning.com/contact/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://anuvacleaning.com/privacy-policy/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://anuvacleaning.com/terms/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+</urlset>

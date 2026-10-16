@@ -6,6 +6,7 @@
   --graphite: #30363D;
   --line: #dfe3e7;
   --max: 1160px;
+  --space-section: 4rem;
   --head: 'Montserrat', system-ui, sans-serif;
   --body: 'Open Sans', system-ui, sans-serif;
 }
@@ -23,6 +24,153 @@ body {
   font: 400 1rem/1.65 var(--body);
   color: var(--graphite);
   background: #fff;
+}
+
+.certification-rail {
+  position: fixed;
+  z-index: 49;
+  top: 50%;
+  right: .75rem;
+  display: flex;
+  width: 156px;
+  max-height: calc(100vh - 2rem);
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  transform: translateY(-50%);
+  background: var(--navy);
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 4px;
+  box-shadow: -4px 0 18px rgba(11, 31, 51, .08);
+  overflow: visible;
+}
+
+.certification-rail__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+}
+
+.certification-rail__title {
+  margin: 0;
+  color: #fff;
+  font: 700 .72rem/1.2 var(--head);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.certification-rail__toggle {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(11, 31, 51, .16);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--navy);
+  box-shadow: 0 1px 3px rgba(11, 31, 51, .25);
+  cursor: pointer;
+  font: 600 1.1rem/1 var(--head);
+  position: absolute;
+  top: -.5rem;
+  right: -.5rem;
+  transition: background .15s ease, border-color .15s ease, transform .15s ease;
+}
+
+.certification-rail__toggle:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: scale(1.06);
+}
+
+.certification-rail__toggle:focus-visible {
+  /* Two rings, because the button sits on the navy panel when expanded and on the page itself
+   * once docked: the white ring reads on dark backgrounds, the navy ring on light ones. */
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--navy);
+}
+
+.certification-rail__close-icon {
+  position: relative;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+}
+
+.certification-rail__close-icon::before,
+.certification-rail__close-icon::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.certification-rail__close-icon::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.certification-rail__close-icon::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.certification-rail__logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .8rem;
+}
+
+.certification-rail__logos img {
+  display: block;
+  width: 100%;
+  max-width: 112px;
+  max-height: clamp(24px, calc((100vh - 12rem) / 4), 78px);
+  object-fit: contain;
+}
+
+/* Docked, the rail collapses to a single vertical tab. The rail itself drops its background,
+ * border and padding so nothing frames the button: the tab's border becomes the outer edge. */
+.certification-rail.is-docked {
+  width: auto;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+
+.certification-rail.is-docked .certification-rail__header {
+  justify-content: center;
+}
+
+.certification-rail.is-docked .certification-rail__title,
+.certification-rail.is-docked .certification-rail__logos {
+  display: none;
+}
+
+.certification-rail.is-docked .certification-rail__toggle {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: .55rem .3rem;
+  border: 1px solid rgba(255, 255, 255, .55);
+  border-radius: 3px;
+  background: var(--navy);
+  color: #fff;
+  font-size: .7rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
 }
 
 .env-card {
@@ -50,8 +198,7 @@ body {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: .75rem;
-  margin: 2rem auto;
-  padding-top: 2rem;
+  margin: 0 auto;
 }
 
 .env-overlay {
@@ -70,6 +217,10 @@ body {
 
 @media (max-width: 560px) {
   .env-grid { grid-template-columns: repeat(2, 1fr); }
+  .env-desc {
+    max-height: 6rem;
+    opacity: 1;
+  }
 }
 
 .env-label {
@@ -91,7 +242,8 @@ body {
   transition: max-height .3s ease, opacity .3s ease, margin .3s ease;
 }
 
-.env-card:hover .env-desc {
+.env-card:hover .env-desc,
+.env-card:focus-visible .env-desc {
   max-height: 6rem;
   opacity: 1;
 }
@@ -330,22 +482,6 @@ h3 {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-.logo-band {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.5rem 2rem;
-  align-items: center;
-  padding: 1rem 0;
-}
-
-.logo-band img {
-  height: 90px;
-  width: auto;
-  margin: 0 auto;
-  object-fit: contain;
-  filter: grayscale(0);
-}
-
 .hero {
   color: #dbe4ec;
   padding: 6rem 0 5rem;
@@ -378,11 +514,15 @@ h3 {
 
 /* sections */
 .section {
-  padding: 4rem 0rem 2rem 0rem; 
+  padding: var(--space-section) 0rem;
 }
 
-.section-home {
-  padding: 5rem 0rem;
+.home-page {
+  --space-section: 4rem;
+}
+
+.home-page > .section {
+  padding-block: var(--space-section);
 }
 
 .section--gray {
@@ -498,10 +638,6 @@ h3 {
 .card a {
   text-decoration: none;
   color: inherit;
-}
-
-.card a:hover h3 {
-  color: var(--blue);
 }
 
 .section--navy .card {
@@ -651,9 +787,10 @@ textarea {
   color: inherit;
 }
 
-.card-link:hover h3 {
+.card:is(a, .card-link):is(:hover, :focus-visible) h3,
+.card:has(a[href]):is(:hover, :focus-within) h3 {
+  color: var(--blue);
   text-decoration: underline;
-  transform: translateY(-2px);
 }
 
 .card-link::after {
@@ -662,9 +799,11 @@ textarea {
   inset: 0;
 }
 
-.card:hover {
+.card:is(a, .card-link):is(:hover, :focus-visible),
+.card:has(a[href]):is(:hover, :focus-within) {
   box-shadow: 0 6px 18px rgba(11, 31, 51, 0.12);
   border-color: var(--navy);
+  transform: translateY(-2px);
 }
 
 .footer-brand {
@@ -750,7 +889,7 @@ textarea {
 
   .site-footer .wrap {
     grid-template-columns: 1fr;
-    margin: 1rem;
+    margin: 1rem 0;
   }
 
   .site-footer .wrap > div:first-child {
@@ -784,22 +923,261 @@ textarea {
     text-align: center;
   }
 
-  .logo-band {
-    gap: 1rem;
-  }
-
-  .logo-band img {
-    max-width: 260px;
-    max-height: 180px;
-  }
-
-  .section-home {
-    padding: 2rem 0;
+  /* Phones get a tighter rhythm, but still one value for every section. This replaced a
+   * .section-home override that gave the closing section half the spacing of its neighbors. */
+  :root {
+    --space-section: 3rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+}
+
+/* ---- Homepage and page visuals ---- */
+
+.icon-grid {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
+}
+
+.icon-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+  height: 100%;
+  padding: 1.4rem 1rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--navy);
+  font: 700 .92rem var(--head);
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+
+.icon-tile:hover {
+  border-color: var(--navy);
+  box-shadow: 0 6px 18px rgba(11, 31, 51, 0.12);
+}
+
+.icon-tile svg {
+  width: 36px;
+  height: 36px;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.project-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-card h3 {
+  margin-top: .4rem;
+}
+
+.project-card__tag {
+  font: 700 .72rem var(--head);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--blue);
+}
+
+.project-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.visual-note {
+  color: #5d6670;
+  font-size: .9rem;
+}
+
+.project-visual-card {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.project-visual-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.project-visual-card h3 {
+  margin: 0;
+  padding: 1rem 1.1rem;
+}
+
+.project-card__logo {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+.about-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.about-story img {
+  display: block;
+  width: 100%;
+  max-height: 24rem;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.about-story p {
+  max-width: 55ch;
+}
+
+.about-story__year {
+  margin: 0 0 .6rem;
+  color: var(--blue);
+  font: 700 .9rem var(--head);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.about-story a {
+  font-weight: 700;
+}
+
+.approach-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.approach-list li {
+  display: grid;
+  gap: .35rem;
+  padding: 1.1rem;
+  background: #fff;
+  border-left: 3px solid var(--gold);
+}
+
+.approach-list strong {
+  color: var(--navy);
+  font-family: var(--head);
+}
+
+.government-summary {
+  margin: 0;
+}
+
+.certification-logo-bar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.certification-logo-bar img {
+  display: block;
+  width: 100%;
+  height: 5rem;
+  object-fit: contain;
+}
+
+@media (max-width: 700px) {
+  .about-story {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .certification-logo-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .home-page {
+    --space-section: 3rem;
+  }
+
+  .certification-rail {
+    top: auto;
+    right: .75rem;
+    bottom: .75rem;
+    left: auto;
+    width: min(360px, calc(100% - 1.5rem));
+    max-height: calc(100vh - 1.5rem);
+    min-height: 0;
+    gap: .65rem;
+    padding: .75rem;
+    transform: none;
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 4px;
+    box-shadow: 0 4px 18px rgba(11, 31, 51, .2);
+  }
+
+  .certification-rail__logos {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: .5rem;
+  }
+
+  .certification-rail__logos img {
+    width: auto;
+    max-width: 23%;
+    height: clamp(28px, calc(100vh - 34rem), 58px);
+  }
+
+  .certification-rail.is-docked .certification-rail__header {
+    justify-content: center;
+  }
+
+}
+
+/* Event showcase on the venues & events page: a logo beside a block of copy. These two sat in
+ * inline styles, and the fixed 8rem gap in a non-wrapping flex row made the page wider than a
+ * phone screen. Kept here so the row can stack on narrow screens. */
+.event-showcase {
+  padding: 5rem 10rem 0rem 10rem;
+  display: flex;
+  gap: 8rem;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .event-showcase {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem 1.5rem 0rem 1.5rem;
   }
 }
