@@ -52,6 +52,7 @@ if (headerHost) {
       headerHost.innerHTML = html;
       const injectedToggle = headerHost.querySelector('.nav-toggle');
       const injectedNav = headerHost.querySelector('.nav');
+      const dropdownToggle = headerHost.querySelector('.nav-dropdown__expand');
 
       const currentPage = window.location.pathname.replace(/\/+$/, '').split('/').pop() || 'index';
       headerHost.querySelectorAll('.nav a[href]').forEach((link) => {
@@ -70,6 +71,16 @@ if (headerHost) {
         const open = injectedNav.classList.toggle('open');
         injectedToggle.classList.toggle('is-open', open);
         injectedToggle.setAttribute('aria-expanded', open);
+      });
+
+      dropdownToggle?.addEventListener('click', () => {
+        const dropdown = dropdownToggle.closest('.nav-dropdown');
+        const open = dropdown.classList.toggle('is-open');
+        dropdownToggle.setAttribute('aria-expanded', String(open));
+        dropdownToggle.setAttribute(
+          'aria-label',
+          `${open ? 'Hide' : 'Show'} Industries submenu`
+        );
       });
     })
     .catch((error) => {
