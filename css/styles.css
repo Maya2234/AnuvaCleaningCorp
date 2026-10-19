@@ -829,7 +829,7 @@ textarea {
 
 .site-footer .wrap {
   display: grid;
-  grid-template-columns: minmax(240px, 1.1fr) minmax(0, 1.6fr) auto;
+  grid-template-columns: minmax(240px, 1fr) minmax(0, 1.6fr);
   align-items: start;
   gap: 2rem 4rem;
   width: 100%;
@@ -968,6 +968,7 @@ textarea {
   display: grid;
   gap: 1.4rem;
   justify-items: start;
+  margin-top: .4rem;
 }
 
 .footer-social {
@@ -1015,12 +1016,8 @@ textarea {
 
 @media (max-width: 900px) {
   .site-footer .wrap {
-    grid-template-columns: 1fr auto;
-    gap: 2rem 3rem;
-  }
-
-  .footer-contact {
-    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
   .legal {
