@@ -876,12 +876,17 @@ textarea {
 
 .footer-contact {
   display: grid;
-  gap: 1rem;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  grid-template-rows: auto auto auto;
+  align-items: start;
+  gap: .75rem 1rem;
   margin: 0;
 }
 
 .footer-ceo__photo {
   display: block;
+  grid-column: 1;
+  grid-row: 1 / span 3;
   width: 6rem;
   aspect-ratio: 4 / 5;
   object-fit: cover;
@@ -889,6 +894,8 @@ textarea {
 }
 
 .footer-ceo {
+  grid-column: 2;
+  grid-row: 1;
   margin: 0;
   color: #fff;
   font: 700 .9rem/1.4 var(--head);
@@ -902,6 +909,8 @@ textarea {
 }
 
 .footer-contact__list {
+  grid-column: 2;
+  grid-row: 2;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -917,15 +926,49 @@ textarea {
   font-size: .9rem;
 }
 
-.footer-contact__link svg {
+.footer-contact__icon {
+  position: relative;
+  display: inline-flex;
   flex: 0 0 auto;
   width: 1.15rem;
   height: 1.15rem;
-  fill: none;
-  stroke: var(--gold);
-  stroke-width: 1.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+}
+
+.footer-contact__icon--chat::before {
+  position: absolute;
+  top: .12rem;
+  left: .12rem;
+  width: .85rem;
+  height: .68rem;
+  border: 1.7px solid currentColor;
+  border-radius: 50%;
+  content: "";
+}
+
+.footer-contact__icon--chat::after {
+  position: absolute;
+  bottom: .1rem;
+  left: .08rem;
+  width: .25rem;
+  height: .25rem;
+  transform: skew(-25deg);
+  border-bottom: 1.7px solid currentColor;
+  border-left: 1.7px solid currentColor;
+  background: var(--navy);
+  content: "";
+}
+
+.footer-contact__icon--phone::before {
+  font: 1.15rem/1 "Segoe UI Symbol", sans-serif;
+  content: "\260E";
+}
+
+.footer-contact__icon--email::before {
+  font: 1.15rem/1 "Segoe UI Symbol", sans-serif;
+  content: "\2709";
 }
 
 .footer-contact__link:hover,
@@ -980,6 +1023,9 @@ textarea {
 }
 
 .footer-social {
+  grid-column: 2;
+  grid-row: 3;
+  justify-self: start;
   display: inline-flex;
   width: 2.4rem;
   height: 2.4rem;

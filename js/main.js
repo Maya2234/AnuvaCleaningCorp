@@ -23,8 +23,8 @@ certificationRail.innerHTML = `
 document.body.append(certificationRail);
 
 const certificationToggle = certificationRail.querySelector('.certification-rail__toggle');
-certificationToggle.addEventListener('click', () => {
-  const docked = certificationRail.classList.toggle('is-docked');
+const setCertificationRailDocked = (docked) => {
+  certificationRail.classList.toggle('is-docked', docked);
   certificationToggle.setAttribute('aria-expanded', String(!docked));
   certificationToggle.setAttribute(
     'aria-label',
@@ -33,6 +33,14 @@ certificationToggle.addEventListener('click', () => {
   certificationToggle.innerHTML = docked
     ? 'View Certifications'
     : '<span class="certification-rail__close-icon" aria-hidden="true"></span>';
+};
+
+if (window.matchMedia('(max-width: 1100px)').matches) {
+  setCertificationRailDocked(true);
+}
+
+certificationToggle.addEventListener('click', () => {
+  setCertificationRailDocked(!certificationRail.classList.contains('is-docked'));
 });
 
 const toggle = document.querySelector('.nav-toggle');
@@ -90,7 +98,7 @@ if (headerHost) {
 
 const footerHost = document.getElementById('site-footer');
 if (footerHost) {
-  fetch('/footer.html?v=2026-10-21b')
+  fetch('/footer.html?v=2026-10-21c')
     .then((response) => response.text())
     .then((html) => {
       footerHost.innerHTML = html;
