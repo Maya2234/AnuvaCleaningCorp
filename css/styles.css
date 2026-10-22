@@ -1149,6 +1149,11 @@ textarea {
     text-align: center;
   }
 
+  .band li:first-child {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
   /* Phones get a tighter rhythm, but still one value for every section. This replaced a
    * .section-home override that gave the closing section half the spacing of its neighbors. */
   :root {
