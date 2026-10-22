@@ -915,70 +915,38 @@ textarea {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: .7rem;
+  gap: .5rem;
 }
 
-.footer-contact__link {
+/* Contact links mirror the Explore/Resources columns: muted text, white on hover. */
+.site-footer .footer-contact__link {
   display: inline-flex;
   align-items: center;
-  gap: .6rem;
-  color: #fff;
+  gap: .55rem;
+  color: #b9c6d3;
   font-size: .9rem;
 }
 
 .footer-contact__icon {
-  position: relative;
-  display: inline-flex;
   flex: 0 0 auto;
-  width: 1.15rem;
-  height: 1.15rem;
-  align-items: center;
-  justify-content: center;
+  width: 1.05rem;
+  height: 1.05rem;
   color: var(--gold);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.footer-contact__icon--chat::before {
-  position: absolute;
-  top: .12rem;
-  left: .12rem;
-  width: .85rem;
-  height: .68rem;
-  border: 1.7px solid currentColor;
-  border-radius: 50%;
-  content: "";
-}
-
-.footer-contact__icon--chat::after {
-  position: absolute;
-  bottom: .1rem;
-  left: .08rem;
-  width: .25rem;
-  height: .25rem;
-  transform: skew(-25deg);
-  border-bottom: 1.7px solid currentColor;
-  border-left: 1.7px solid currentColor;
-  background: var(--navy);
-  content: "";
-}
-
-.footer-contact__icon--phone::before {
-  font: 1.15rem/1 "Segoe UI Symbol", sans-serif;
-  content: "\260E";
-}
-
-.footer-contact__icon--email::before {
-  font: 1.15rem/1 "Segoe UI Symbol", sans-serif;
-  content: "\2709";
-}
-
-.footer-contact__link:hover,
-.footer-contact__link:focus-visible {
-  color: var(--gold);
+.site-footer .footer-contact__link:hover,
+.site-footer .footer-contact__link:focus-visible {
+  color: #fff;
   text-decoration: underline;
 }
 
 /* Phones swap the sales chat link for a text message to the same number. */
-.footer-contact__link--mobile {
+.site-footer .footer-contact__link--mobile {
   display: none;
 }
 
@@ -1085,11 +1053,11 @@ textarea {
     gap: 2rem;
   }
 
-  .footer-contact__link--desktop {
+  .site-footer .footer-contact__link--desktop {
     display: none;
   }
 
-  .footer-contact__link--mobile {
+  .site-footer .footer-contact__link--mobile {
     display: inline-flex;
   }
 
