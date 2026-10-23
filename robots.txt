@@ -1,8 +1,9 @@
 # robots.txt for anuvacleaning.com
-# Everything here is meant to be found; the one exception is the contact form's confirmation page.
+# Everything here is meant to be found. The contact form's confirmation page
+# (/thank-you/) keeps itself out of search results with a noindex meta tag
+# rather than a Disallow rule, so crawlers can read the page and honour it.
 
 User-agent: *
 Allow: /
-Disallow: /thank-you/
 
 Sitemap: https://anuvacleaning.com/sitemap.xml

@@ -6,7 +6,8 @@
 
   Left out on purpose:
     404.html      - an error page, never a search result
-    /thank-you/   - the contact form's confirmation page, reached only by a post-submit redirect
+    /thank-you/   - the contact form's confirmation page, reached only by a post-submit redirect;
+                    it excludes itself with a noindex meta tag rather than a robots.txt rule
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
