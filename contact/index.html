@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Request a Cleaning Quote in Cincinnati │ Anuva</title>
+    <title>Request a Cleaning Quote in Cincinnati | Anuva</title>
     <meta
       name="description"
       content="Request a commercial cleaning quote for your Cincinnati-area facility. Anuva serves government, construction, commercial, healthcare, education, and event clients."
@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=2026-10-22b" />
+    <link rel="stylesheet" href="/css/styles.css?v=2026-10-24h" />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -40,6 +40,7 @@
             action="https://formspree.io/f/xeaorwav"
             method="POST"
           >
+
             <input
               type="text"
               name="_gotcha"
@@ -49,23 +50,23 @@
             />
 
             <label>
-              Name
-            <input type="text"  name="name"  placeholder="Your name" required>
+              <span>Name <span class="req">*</span></span>
+              <input type="text" name="name" placeholder="Your name" required>
             </label>
 
             <label>
-              Company / Organization
-              <input type="text" name="org" />
+              <span>Company / Organization <span class="req">*</span></span>
+              <input type="text" name="org" placeholder="Your company or organization" required />
             </label>
 
             <label>
-              Email
-          <input type="email" name="email" placeholder="Your email" required>
+              <span>Email <span class="req">*</span></span>
+              <input type="email" name="email" placeholder="Your email" required>
             </label>
 
             <label>
-              Phone
-              <input type="tel" name="phone" />
+              <span>Phone <span class="req">*</span></span>
+              <input type="tel" name="phone" placeholder="Your phone number" required />
             </label>
 
             <label>
