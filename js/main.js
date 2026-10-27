@@ -98,7 +98,7 @@ if (headerHost) {
 
 const footerHost = document.getElementById('site-footer');
 if (footerHost) {
-  fetch('/footer.html?v=2026-10-27')
+  fetch('/footer.html?v=2026-10-27b')
     .then((response) => response.text())
     .then((html) => {
       footerHost.innerHTML = html;
