@@ -1013,10 +1013,18 @@ textarea:user-invalid {
   margin-top: .4rem;
 }
 
-.footer-social {
+/* Row of social bubbles (LinkedIn, Google). Kept in its own grid cell so the
+   buttons sit side by side without changing the photo/contact column layout. */
+.footer-socials {
   grid-column: 2;
   grid-row: 3;
   justify-self: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+}
+
+.footer-social {
   display: inline-flex;
   width: 2.4rem;
   height: 2.4rem;
