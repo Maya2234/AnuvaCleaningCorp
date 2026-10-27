@@ -1020,26 +1020,48 @@ textarea:user-invalid {
   grid-row: 3;
   justify-self: start;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap: .55rem;
+  gap: .6rem;
 }
 
+/* Both bubbles are built from one box so the circles are identical: a fixed
+   flex basis stops the row from shrinking either button into an ellipse. */
 .footer-social {
+  flex: 0 0 2.4rem;
+  box-sizing: border-box;
   display: inline-flex;
   width: 2.4rem;
   height: 2.4rem;
   align-items: center;
   justify-content: center;
+  line-height: 0;
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, .35);
+  background: rgba(255, 255, 255, .07);
+  border: 1px solid rgba(255, 255, 255, .5);
   border-radius: 50%;
-  transition: background .15s ease, border-color .15s ease, color .15s ease;
+  transition: background .15s ease, border-color .15s ease, color .15s ease,
+    transform .15s ease;
 }
 
 .footer-social svg {
+  display: block;
+  fill: currentColor;
+  shape-rendering: geometricPrecision;
+}
+
+/* Optical sizing: the two marks carry very different padding inside their 24x24
+   view box (the LinkedIn mark inks 17.5 of 24 units, the Google G inks all 24),
+   so one shared size left the G about a third larger and heavier than LinkedIn.
+   These boxes give both glyphs the same ink height. */
+.footer-social--linkedin svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.footer-social--google svg {
   width: 1.05rem;
   height: 1.05rem;
-  fill: currentColor;
 }
 
 .footer-social:hover,
@@ -1047,6 +1069,7 @@ textarea:user-invalid {
   background: var(--gold);
   border-color: var(--gold);
   color: var(--navy);
+  transform: translateY(-1px);
 }
 
 .footer-brand .brand {
